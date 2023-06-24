@@ -9,7 +9,7 @@
 
 # Recover Wi-Fi Password Using CMD, Windows PowerShell
 
-This guide will show you how to recover Wi-Fi passwords on a Windows PC using CMD & Windows PowerShell
+This guide will show you how to recover Wi-Fi passwords on a Windows PC using CMD, Windows PowerShell
 
 ## Reveal Target Wi-Fi Password
 
