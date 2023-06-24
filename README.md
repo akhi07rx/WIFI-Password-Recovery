@@ -10,43 +10,62 @@
 
 This guide will show you how to recover Wi-Fi passwords on a Windows PC using CMD.
 
-<br />
-
 ## Reveal Target Wi-Fi Password
 
 First, we must uncover the target Wi-Fi network to display the corresponding password. To accomplish this, launch Windows Command Prompt window and input the subsequent command to exhibit all Wi-Fi networks that your computer has previously connected to:
+
+<br />
 
 ```
 netsh wlan show profile
 ```
 
+<br />
 With the Wi-Fi network profiles visible, enter the following command, replacing `WIFI-NAME-PROFILE` (leave the quotes) with the profile for which you want to see the password:
+
+<br />
 
 ```
 netsh wlan show profile “WIFI-NAME-PROFILE” key=clear
 ```
 
+<br />
+
 To only show the Wi-Fi password for that target wireless network profile, enter the following command:
+
+<br />
 
 ```
 netsh wlan show profile “WIFI-NAME-PROFILE” key=clear | findstr “Key Content”
 ```
 
+<br />
+
 ## Reveal All Wi-Fi Passwords
 
 The subsequent command will display all saved Wi-Fi networks along with their corresponding Wi-Fi passwords:
+
+<br />
 
 ```
 for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" (echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") & echo.
 ```
 
+<br />
+
 You can also save all of those Wi-Fi network details shown using the command above to a text document using the following command:
+
+<br />
 
 ```
 for /f “skip=9 tokens=1,2 delims=:” %i in (‘netsh wlan show profiles’) do @if “%j” NEQ “” (echo SSID: %j & netsh wlan show profiles %j key=clear | findstr “Key Content”) >> wifipass.txt
 ```
 
+<br />
+
 **Note:** Replace `wifipass.txt` at the end of the above command to customize the file name which will be generated in the Windows directory you currently reside.
+
+<br />
 
 ## Create a Windows Batch File
 
@@ -80,6 +99,8 @@ for /f "tokens=2 delims=:" %%i in ('netsh wlan show profile name^="%ssid:"=%" ke
 Save the file with a `.bat` extension, such as `show_wifi_pass.bat`. To run the batch file, simply double-click on it.
 
 This batch file will run the command to show all stored Wi-Fi networks and their associated Wi-Fi passwords. It will also pause at the end so you can view the results.
+
+<br />
 
 ## Troubleshooting
 
