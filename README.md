@@ -120,7 +120,7 @@ This batch file will run the command to show all stored Wi-Fi networks and their
 If you encounter any issues while following the steps in this guide, here are some troubleshooting tips that may help:
 
 - Make sure you are running the commands in a Windows Command Prompt window with administrative privileges. To do this, right-click on the Command Prompt icon and select "Run as administrator".
-- If copying and pasting the commands into the Command Prompt window does not work, try typing them in manually. The quotes (“) and (‘) may be picked up differently when copying and pasting.
+
 - If you are having trouble creating or running a batch file, make sure the file has a `.bat` extension and that you have permission to run it.
 
 If you continue to have issues, please feel free to open an issue in this repository or seek help from online forums or communities.
