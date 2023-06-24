@@ -1,3 +1,8 @@
+:: Created by: akhi07rx
+:: Recover Wireless Password on Windows Using CMD
+:: https://github.com/akhi07rx
+
+
 @echo off
 setlocal enabledelayedexpansion
 
