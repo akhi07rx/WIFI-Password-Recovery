@@ -56,11 +56,28 @@ To create a batch file, open a text editor and paste in the following code:
 
 ```
 @echo off
-for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" (echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") & echo.
-pause
+setlocal enabledelayedexpansion
+
+for /f "tokens=2 delims=:" %%a in ('netsh wlan show profile ^| findstr ":"') do (
+    set "ssid=%%~a"
+    call :getpwd "%%ssid:~1%%"
+)
+
+echo.
+echo Press any key to exit...
+pause > nul
+exit
+
+:getpwd
+set "ssid=%*"
+
+for /f "tokens=2 delims=:" %%i in ('netsh wlan show profile name^="%ssid:"=%" key^=clear ^| findstr /C:"Key Content"') do (
+    echo SSID: %ssid% PASS: %%i
+)
+
 ```
 
-Save the file with a `.bat` extension, such as `show_wifi_passwords.bat`. To run the batch file, simply double-click on it.
+Save the file with a `.bat` extension, such as `show_wifi_pass.bat`. To run the batch file, simply double-click on it.
 
 This batch file will run the command to show all stored Wi-Fi networks and their associated Wi-Fi passwords. It will also pause at the end so you can view the results.
 
