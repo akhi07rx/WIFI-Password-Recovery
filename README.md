@@ -13,7 +13,7 @@ This guide will show you how to recover Wi-Fi passwords on a Windows PC using CM
 
 ## Reveal Target Wi-Fi Password
 
-First, we must uncover the target Wi-Fi network to display the corresponding password. To accomplish this, launch Windows Command Prompt window and input the subsequent command to exhibit all Wi-Fi networks that your computer has previously connected to:
+First, we must uncover the target Wi-Fi network to display the corresponding password. To accomplish this, launch the Windows Command Prompt window and input the subsequent command to exhibit all Wi-Fi networks that your computer has previously connected to:
 
 <br />
 
@@ -21,14 +21,14 @@ First, we must uncover the target Wi-Fi network to display the corresponding pas
 netsh wlan show profile
 ```
 
+```
+netsh wlan show profile “WIFI-NAME-PROFILE” key=clear
+```
+
 <br />
 With the Wi-Fi network profiles visible, enter the following command, replacing `WIFI-NAME-PROFILE` (leave the quotes) with the profile for which you want to see the password:
 
 <br />
-
-```
-netsh wlan show profile “WIFI-NAME-PROFILE” key=clear
-```
 
 <br />
 
@@ -137,7 +137,7 @@ These resources provide more detailed information about the `netsh` command and 
 
 <br>
 
-## Acknowledgement
+## Acknowledgment
 
 We would like to acknowledge and thank the authors and creators of the additional resources listed in this guide. Your work has provided valuable information and guidance for users looking to learn more about managing wireless networks on Windows. This code was developed with help from various online resources, including documentation for the netsh command, Windows Command Line reference, and Wireless networking on Windows. We would like to thank all contributors who have shared their knowledge and expertise with us. Thank you for your contributions to the community.
 
