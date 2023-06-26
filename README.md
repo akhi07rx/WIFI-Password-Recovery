@@ -21,14 +21,14 @@ First, we must uncover the target Wi-Fi network to display the corresponding pas
 netsh wlan show profile
 ```
 
-```
-netsh wlan show profile “WIFI-NAME-PROFILE” key=clear
-```
-
 <br />
 With the Wi-Fi network profiles visible, enter the following command, replacing `WIFI-NAME-PROFILE` (leave the quotes) with the profile for which you want to see the password:
 
 <br />
+
+```
+netsh wlan show profile “WIFI-NAME-PROFILE” key=clear
+```
 
 <br />
 
